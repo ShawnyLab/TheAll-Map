@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>네이버 지도 예제</title>
+    <title>네이버 지도</title>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qfxfw9nmzt"></script>
     <style>
         #map {
@@ -13,7 +13,6 @@
     </style>
 </head>
 <body>
-    <h1>네이버 지도 예제</h1>
     <div id="map"></div>
 
     <script>
@@ -30,6 +29,15 @@
             map: map
         });
 
+        // 인포 윈도우 생성
+        var infowindow = new naver.maps.InfoWindow({
+            content: '<div style="width:200px;text-align:center;padding:10px;">서울특별시 강남구 테헤란로 37길 7, 11층(역삼동, 조이타워)</div>'
+        });
+
+        // 마커 클릭 시 인포 윈도우 표시
+        naver.maps.Event.addListener(marker, 'click', function() {
+            infowindow.open(map, marker);
+        });
     </script>
 </body>
 </html>
