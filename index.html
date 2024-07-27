@@ -12,43 +12,40 @@
 <body>
     <div id="map"></div>
     <script>
-        naver.maps.onJSContentLoaded = function() {
-            naver.maps.setOptions({
-                useStyleMap: true,
-                https: true
+        function initMap(lat, lng) {
+            var mapOptions = {
+                center: new naver.maps.LatLng(lat, lng),
+                zoom: 17,
+                mapDataControl: true,
+                scaleControl: true,
+                mapTypeControl: true
+            };
+            var map = new naver.maps.Map('map', mapOptions);
+            
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(lat, lng),
+                map: map
             });
-            function initMap(lat, lng) {
-                var mapOptions = {
-                    center: new naver.maps.LatLng(lat, lng),
-                    zoom: 17,
-                    https: true,
-                    mapDataControl: true,
-                    scaleControl: true,
-                    mapTypeControl: true
-                };
-                var map = new naver.maps.Map('map', mapOptions);
-                
-                var marker = new naver.maps.Marker({
-                    position: new naver.maps.LatLng(lat, lng),
-                    map: map
-                });
-            }
-            function searchAddressToCoordinate(address) {
-                naver.maps.Service.geocode({
-                    query: address
-                }, function(status, response) {
-                    if (status === naver.maps.Service.Status.ERROR) {
-                        return alert('오류가 발생했습니다!');
-                    }
-                    if (response.v2.meta.totalCount === 0) {
-                        return alert('검색 결과가 없습니다.');
-                    }
-                    var item = response.v2.addresses[0];
-                    var lat = item.y;
-                    var lng = item.x;
-                    initMap(lat, lng);
-                });
-            }
+        }
+
+        function searchAddressToCoordinate(address) {
+            naver.maps.Service.geocode({
+                query: address
+            }, function(status, response) {
+                if (status === naver.maps.Service.Status.ERROR) {
+                    return alert('오류가 발생했습니다!');
+                }
+                if (response.v2.meta.totalCount === 0) {
+                    return alert('검색 결과가 없습니다.');
+                }
+                var item = response.v2.addresses[0];
+                var lat = item.y;
+                var lng = item.x;
+                initMap(lat, lng);
+            });
+        }
+
+        window.onload = function() {
             var address = "서울특별시 중구 세종대로 110";
             searchAddressToCoordinate(address);
         };
