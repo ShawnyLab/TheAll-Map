@@ -34,10 +34,9 @@
             content: '<div style="width:200px;text-align:center;padding:10px;">서울특별시 강남구 테헤란로 37길 7, 11층(역삼동, 조이타워)</div>'
         });
 
-        // 마커 클릭 시 인포 윈도우 표시
-        naver.maps.Event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-        });
+        // 인포 윈도우를 마커에 표시
+        infowindow.open(map, marker);
+
     </script>
 </body>
 </html>
