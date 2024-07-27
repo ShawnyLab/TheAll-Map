@@ -17,10 +17,10 @@
     <div id="map"></div>
 
     <script>
-        // 네이버 지도 초기화
+        // 초기 중심 좌표와 확대 레벨 설정
         var map = new naver.maps.Map('map', {
-            center: new naver.maps.LatLng(37.502804, 127.040618), // 초기 중심 좌표
-            zoom: 15 // 확대 레벨
+            center: new naver.maps.LatLng(37.502804, 127.040618),
+            zoom: 17
         });
 
         // 지오코더 객체 생성
@@ -41,7 +41,7 @@
                     point = new naver.maps.Point(item.x, item.y);
 
                 map.setCenter(point); // 지도 중심 이동
-                new naver.maps.Marker({
+                var marker = new naver.maps.Marker({
                     position: point,
                     map: map
                 });
