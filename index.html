@@ -23,26 +23,13 @@
             zoom: 17
         });
 
-        // 커스텀 마커 아이콘 설정
-        var markerImage = {
-            url: 'https://cdn.pixabay.com/photo/2016/03/31/17/53/communication-1293975_1280.png', // 여기에 커스텀 마커 이미지 URL을 입력하세요
-            scaledSize: new naver.maps.Size(24, 32), // 표시할 이미지 크기
-            origin: new naver.maps.Point(0, 0),
-            anchor: new naver.maps.Point(12, 26) // 마커의 앵커 지점 (이미지의 기준점)
-        };
-
         // 초기 위치에 마커 표시
         var marker = new naver.maps.Marker({
             position: initialLocation,
-            map: map,
-            icon: markerImage
+            map: map
         });
 
-        // 인포 윈도우 생성
-        var infowindow = new naver.maps.InfoWindow({
-            content: '<div style="width:200px;text-align:center;padding:10px;">서울특별시 강남구 테헤란로 37길 7, 11층(역삼동, 조이타워)</div>'
-        });
 
     </script>
 </body>
-</html>
+</html> 
