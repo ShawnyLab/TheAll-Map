@@ -11,6 +11,7 @@
             height: 500px;
         }
     </style>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://openapi.map.naver.com https://*.naver.com; img-src 'self' https://openapi.map.naver.com https://*.naver.com https://framerusercontent.com;">
 </head>
 <body>
     <div id="map"></div>
@@ -28,8 +29,6 @@
             position: initialLocation,
             map: map
         });
-
-
     </script>
 </body>
-</html> 
+</html>
