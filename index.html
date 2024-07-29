@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,20 +16,6 @@
 </head>
 <body>
     <div id="map"></div>
-
-    <script>
-        // 초기 중심 좌표와 확대 레벨 설정
-        var initialLocation = new naver.maps.LatLng(37.502804, 127.040618);
-        var map = new naver.maps.Map('map', {
-            center: initialLocation,
-            zoom: 17
-        });
-
-        // 초기 위치에 마커 표시
-        var marker = new naver.maps.Marker({
-            position: initialLocation,
-            map: map
-        });
-    </script>
+    <script src="map.js"></script>
 </body>
 </html>
